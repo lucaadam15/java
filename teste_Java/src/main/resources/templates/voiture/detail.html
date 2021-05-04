@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Java Ingenosya</title>
+</head>
+<body>
+    <div class="container p-4">
+        <div class="card">
+            <div class="card-title text-center"><h1 class="text-primary">VOITURE</h1></div>
+            <div class="card-body">
+                <div class="container">
+                    <p><strong>Marque : </strong><span th:text="${voiture.marque}"></span></p>
+                    <p><strong>Modele : </strong><span th:text="${voiture.modele}"></span></p>
+                    <p><strong>Couleur : </strong><span th:text="${voiture.couleur}"></span></p>
+                </div>
+                <hr/>
+                <div class="container">
+                    <h2 class="text-center">Commentaires</h2>
+                    <!--<span th:text="${c.utilisateur.pseudo}"></span>-->
+                    <ul>
+                        <li th:each="c: ${commentaires}">
+                            <strong>Pseudo : </strong><span ></span><br/>
+                            <p th:text="${c.commentair}"></p>
+                        </li>
+                    </ul>
+                </div>
+                <form th:action="@{/commentaire/ajouter}" method="post" class="form-group">
+                    <input type="hidden" name="voitur" th:value="${voiture.IdVoiture}">
+                    <input type="hidden" name="user">
+                    <textarea name="coment" class="form-control m-3" id="" cols="100" rows="10"></textarea>
+                    <button type="submit" class="btn btn-primary m-3">Commenter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

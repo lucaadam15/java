@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Java Ingenosya</title>
+</head>
+<body>
+    <header id="header">
+		<nav class="navbar navbar-expand-lg  nv">
+			<a class="navbar-brand itemlien" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse " id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto nvbr">
+					<li class="nav-item">
+						<a class="nav-link itemlien" th:href="@{/inscription}" data-scroll="service">S'inscrire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link itemlien" th:href="@{/utilisateur/connection}" data-scroll="contact">S'identifier</a>
+					</li>
+				</ul>
+			</div>
+		</nav><!-- navbar -->
+	</header><!-- /header -->
+    <div class="container p-4">
+        <div class="card">
+            <div class="card-title text-center"><h1 class="text-primary">CATALOGUE DE VOITURE</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" border="1">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Marque</th>
+                            <th>Model</th>
+                            <th>Couler</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="v : ${voitures}">
+                            <td th:text="${v.marque}"></td>
+                            <td th:text="${v.modele}"></td>
+                            <td th:text="${v.couleur}"></td>
+                            <td>
+                                <a th:href="@{/voiture/consulter(id=${v.IdVoiture})}" class="btn btn-primary">Ajouter un commentaire</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

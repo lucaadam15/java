@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Java Ingenosya</title>
+</head>
+<body>
+    <header id="header">
+		<nav class="navbar navbar-expand-lg  nv">
+			<a class="navbar-brand itemlien" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse " id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto nvbr">
+					<li class="nav-item">
+						<a class="nav-link itemlien" th:href="@{/inscription}" data-scroll="service">S'inscrire</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link itemlien" th:href="@{/utilisateur/connection}" data-scroll="contact">S'identifier</a>
+					</li>
+				</ul>
+			</div>
+		</nav><!-- navbar -->
+	</header><!-- /header -->
+    <div class="container">
+        <div class="card">
+            <div class="card-titele bg-secondary text-center">S'INSCRIRE</div>
+            <div class="card-body">
+                <form th:action="@{/utilisateur/sinscrir}" method="post" class="form-group">
+                    <label for="pseudo" class="form-label">Pseudo</label>
+                    <input type="text" name="pseudo" class="form-control" th:value="${pseudo}">
+                    <label for="mdp" class="form-label">Mot de Passe</label>
+                    <input type="password" class="form-control" name="mdp">
+                    <label for="mdp1" class="form-label">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control" name="mdp1">
+                    <button type="submit" class="btn btn-primary">s'inscrire</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
